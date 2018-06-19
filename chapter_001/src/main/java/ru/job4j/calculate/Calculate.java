@@ -5,12 +5,12 @@ package ru.job4j.calculate;
 *
 * @author Ism Vladimir (is.vladimir@testmail.com)
 */
-public class Calculate{
+public class Calculate {
 	/**
 	* Main
 	* @param args - arguments
 	*/
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		System.out.println("Hello world!");
 	}
 	
@@ -19,7 +19,7 @@ public class Calculate{
 	* @param name Your name
 	* @return Echo plus your name
 	*/
-	public String echo(String name){
+	public String echo(String name) {
 		return "Echo, echo, echo: " + name;
 	}
 }
