@@ -18,9 +18,9 @@ public class Triangle {
 
     /**
      * Метод вычисления полупериметра по длинам сторон.
-     *
+     * <p>
      * Формула.
-     *
+     * <p>
      * (ab + ac + bc) / 2
      *
      * @param ab расстояние между точками a b
@@ -45,8 +45,6 @@ public class Triangle {
         double p = this.period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
-        }else{
-            rsl = -1;
         }
         return rsl;
     }
@@ -60,6 +58,15 @@ public class Triangle {
      * @return true/false
      */
     private boolean exist(double ab, double ac, double bc) {
-        return ab > 0 && ac > 0 && bc > 0 ? true : false;
+        boolean result = false;
+        if (ab + ac > bc &&
+                ab + bc > ac &&
+                ac + bc > ab &&
+                ab > 0 &&
+                ac > 0 &&
+                bc > 0) {
+            result = true;
+        }
+        return result;
     }
 }
