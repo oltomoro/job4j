@@ -1,33 +1,46 @@
 package ru.job4j.loop;
 
+import java.util.function.BiPredicate;
+
 /**
  * Paint
  *
  * @author ism.vladimir
  */
 public class Paint {
+
     /**
-     * Строит пирамиду заданной высоты.
+     * Строит равностороннюю пирамиду заданной высоты.
      *
      * @param height Высота пирамиды.
      * @return возвращает строку с построенной пирамидой.
      */
     public String pyramid(int height) {
-        StringBuilder pyramid = new StringBuilder();
-        String ls = System.lineSeparator();
-        int width = height + height - 1;
+        return this.loopBy(
+                height,
+                2 * height - 1,
+                (i, j) -> i >= height - j - 1 && i + height - 1 >= j
+        );
+    }
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (i >= height - j - 1 && i + height - 1 >= j) {
-                    pyramid.append("^");
+    /**
+     * Строит пирамиду по заданным параметрам.
+     *
+     * @param height Высота пирамиды.
+     * @return возвращает строку с построенной пирамидой.
+     */
+    private String loopBy(int height, int weight, BiPredicate<Integer, Integer> predict) {
+        StringBuilder screen = new StringBuilder();
+        for (int row = 0; row != height; row++) {
+            for (int column = 0; column != weight; column++) {
+                if (predict.test(row, column)) {
+                    screen.append("^");
                 } else {
-                    pyramid.append(" ");
+                    screen.append(" ");
                 }
             }
-            pyramid.append(ls);
+            screen.append(System.lineSeparator());
         }
-
-        return pyramid.toString();
+        return screen.toString();
     }
 }
