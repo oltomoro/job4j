@@ -32,6 +32,32 @@ public class MatrixCheckTest {
     }
 
     @Test
+    public void whenDataLeftDiagonalByTrueThenTrue() {
+        MatrixCheck matrixCheck = new MatrixCheck();
+        boolean[][] input = {
+                {true, false, false},
+                {false, true, false},
+                {false, false, true}
+        };
+        boolean result = matrixCheck.mono(input);
+        boolean expected = true;
+        Assert.assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenDataRightDiagonalByTrueThenTrue() {
+        MatrixCheck matrixCheck = new MatrixCheck();
+        boolean[][] input = {
+                {false, false, true},
+                {false, true, false},
+                {true, false, false}
+        };
+        boolean result = matrixCheck.mono(input);
+        boolean expected = true;
+        Assert.assertThat(result, is(expected));
+    }
+
+    @Test
     public void whenDataNotMonoByTrueThenFalse() {
         MatrixCheck matrixCheck = new MatrixCheck();
         boolean[][] input = {
