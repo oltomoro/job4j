@@ -1,6 +1,7 @@
 package ru.job4j.array;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * Класс для работы с дубликатами в массивах
@@ -13,18 +14,16 @@ public class ArrayDuplicate {
      * @return массив без дубликатов
      */
     public String[] remove(String[] data) {
-        int index = 0;
-        for (int i = 0; i < data.length - 1; i++) {
-            int last = data.length - 1 - i;
-            for (int j = i; j < last; j++) {
-                if (data[i].equals(data[j + 1])) {
-                    String tmp = data[last];
-                    data[last] = data[j + 1];
-                    data[j + 1] = tmp;
-                    index = last; // запоминаем индекс с которого начинаются дубликаты
+        int resultSize = data.length;
+        for (int i = 0; i < resultSize; i++) {
+            for (int j = i + 1; j < resultSize; j++) {
+                if(data[i].equals(data[j])){
+                    data[j] = data[resultSize -1];
+                    resultSize--;
+                    j--;
                 }
             }
         }
-        return Arrays.copyOf(data, index);
+        return Arrays.copyOf(data, resultSize);
     }
 }
