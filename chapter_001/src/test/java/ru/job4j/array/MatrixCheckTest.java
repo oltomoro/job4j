@@ -69,4 +69,16 @@ public class MatrixCheckTest {
         boolean expected = false;
         Assert.assertThat(result, is(expected));
     }
+
+    @Test
+    public void whenData() {
+        MatrixCheck matrixCheck = new MatrixCheck();
+        boolean[][] input = {
+                {true, false, false},
+                {false, false, false},
+                {false, false, false}
+        };
+        boolean result = matrixCheck.mono(input);
+        Assert.assertThat(result, is(true));
+    }
 }
