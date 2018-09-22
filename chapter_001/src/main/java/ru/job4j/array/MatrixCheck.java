@@ -12,7 +12,9 @@ public class MatrixCheck {
             }
         }
 
-        if(result) return result;
+        if (result) {
+            return result;
+        }
 
         // проверяем правую диагональ
         result = true;

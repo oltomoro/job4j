@@ -17,8 +17,8 @@ public class ArrayDuplicate {
         int resultSize = data.length;
         for (int i = 0; i < resultSize; i++) {
             for (int j = i + 1; j < resultSize; j++) {
-                if(data[i].equals(data[j])){
-                    data[j] = data[resultSize -1];
+                if (data[i].equals(data[j])) {
+                    data[j] = data[resultSize - 1];
                     resultSize--;
                     j--;
                 }
