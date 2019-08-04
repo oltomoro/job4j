@@ -50,6 +50,9 @@ public class Logic3T {
                     break;
                 }
             }
+            if (result){
+                break;
+            }
         }
         return result;
     }
