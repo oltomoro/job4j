@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Item {
     private String id;
@@ -11,8 +10,6 @@ public class Item {
     private String[] comments;
 
     public Item(String name, String desc) {
-        Random rand = new Random();
-        this.id = String.valueOf(System.currentTimeMillis() + rand.nextInt());
         this.name = name;
         this.desc = desc;
         this.time = System.currentTimeMillis();
